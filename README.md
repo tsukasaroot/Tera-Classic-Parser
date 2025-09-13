@@ -28,7 +28,7 @@ Create a file named main.js in the project root with the following code to initi
 ```js
 import { TeraSocketClient } from './lib/TeraSocketClient.js';
 
-const client = new TeraSocketClient('127.0.0.1', 7801); // Adjust port if needed
+const client = new TeraSocketClient('127.0.0.1', 7802); // Adjust port if needed
 client.start().catch((err) => console.error('Client error:', err));
 ```
 Listen for Parsed Packets:
