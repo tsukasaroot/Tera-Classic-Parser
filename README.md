@@ -21,14 +21,15 @@ Game Client: Tera Classic EU (patch 286406).
 
 UsageCreate main.js:
 Create a file named main.js in the project root with the following code to initialize the parser:
+```js
 import { TeraSocketClient } from './lib/TeraSocketClient.js';
 
 const client = new TeraSocketClient('127.0.0.1', 7801); // Adjust port if needed
 client.start().catch((err) => console.error('Client error:', err));
-
+```
 Listen for Parsed Packets:
 Use the event emitter to handle specific opcodes. For example, to capture chat messages:
-
+```js
 client.on('S_CHAT', (msg) => {
   console.log('Received S_CHAT:', msg);
   // Example output:
@@ -52,6 +53,6 @@ client.on('S_ACTION_END', (msg) => {
 client.on('S_UPDATE_GUILD_MEMBER', (msg) => {
   console.log('Received S_UPDATE_GUILD_MEMBER:', msg);
 });
-
+```
 
 There may be a need to do some more work on parsing correctly certain packets definitions
