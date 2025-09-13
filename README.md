@@ -59,4 +59,21 @@ client.on('S_UPDATE_GUILD_MEMBER', (msg) => {
 });
 ```
 
+Full example
+```js
+import {TeraSocketClient} from './lib/TeraSocketClient.js';
+
+const client = new TeraSocketClient('127.0.0.1', 7802);
+client.start().catch((err) => console.error('Client error:', err));
+client._debug = true;
+
+client.on('C_CHAT', (msg) => {
+    const {parsed} = msg;
+
+    if (msg.parsed.message.includes('~bgview')) {
+        console.log('we show up the bgview from an electronjs app by exemple');
+    }
+});
+```
+
 There may be a need to do some more work on parsing correctly certain packets definitions
