@@ -2,7 +2,7 @@ import {TeraSocketClient} from './lib/TeraSocketClient.js';
 
 const client = new TeraSocketClient('127.0.0.1', 7802);
 client.start().catch((err) => console.error('Client error:', err));
-client._debug = true;
+client._debug = false;
 // client._shownodefs = true
 client._writeErrors = true
 
@@ -14,13 +14,7 @@ client.on('C_CHAT', (msg) => {
     }
 });
 
-client.on('S_WHISPER', (msg) => {
-    const {parsed} = msg;
-
-    console.log(parsed)
-});
-
-client.on('S_PARTY_MATCH_LINK', (msg) => {
+client.on('S_SHOW_PARTY_MATCH_INFO', (msg) => {
     const {parsed} = msg;
 
     console.log(parsed)
